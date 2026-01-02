@@ -57,3 +57,8 @@ export SENTRY_CONFIG_YML=sentry/config.yml
 # between upgrades as task signatures may change across
 # versions
 export STOP_TIMEOUT=60 # seconds
+
+# Clean COMPOSE_PROJECT_NAME to remove any Windows line endings (CRLF)
+if [[ -n "${COMPOSE_PROJECT_NAME:-}" ]]; then
+  export COMPOSE_PROJECT_NAME=$(echo -n "$COMPOSE_PROJECT_NAME" | tr -d '\r\n')
+fi

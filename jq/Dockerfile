@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM registry.cn-hangzhou.aliyuncs.com/github88/debian:bookworm-slim
 
 LABEL MAINTAINER="oss@sentry.io"
 

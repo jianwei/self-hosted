@@ -1,7 +1,7 @@
 ARG SENTRY_IMAGE
 FROM ${SENTRY_IMAGE}
 
-RUN pip install https://github.com/stayallive/sentry-nodestore-s3/archive/main.zip
+RUN http_proxy='' https_proxy='' HTTP_PROXY='' HTTPS_PROXY='' pip install https://github.com/stayallive/sentry-nodestore-s3/archive/main.zip
 
 COPY . /usr/src/sentry
 

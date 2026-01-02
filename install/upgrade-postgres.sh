@@ -1,6 +1,6 @@
 echo "${_group}Ensuring proper PostgreSQL version ..."
 
-if [[ -n "$($CONTAINER_ENGINE volume ls -q --filter name=sentry-postgres)" && "$($CONTAINER_ENGINE run --rm -v sentry-postgres:/db busybox cat /db/PG_VERSION 2>/dev/null)" == "9.6" ]]; then
+if [[ -n "$($CONTAINER_ENGINE volume ls -q --filter name=sentry-postgres)" && "$($CONTAINER_ENGINE run --rm -v sentry-postgres:/db registry.cn-hangzhou.aliyuncs.com/github88/busybox cat /db/PG_VERSION 2>/dev/null)" == "9.6" ]]; then
   $CONTAINER_ENGINE volume rm sentry-postgres-new || true
   # If this is Postgres 9.6 data, start upgrading it to 14.0 in a new volume
   $CONTAINER_ENGINE run --rm \
